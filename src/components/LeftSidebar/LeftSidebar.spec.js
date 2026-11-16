@@ -464,7 +464,7 @@ describe('LeftSidebar.vue', () => {
 				const wrapper = await testSearch(SEARCH_TERM, [], [])
 
 				const captionsEls = wrapper.find('.scroller').findAll('.app-navigation-caption')
-				expect(captionsEls.at(0).text()).toBe('Recently opened')
+				expect(captionsEls.at(0).text()).toBe('Recent conversations')
 				expect(captionsEls.at(1).text()).toBe('Conversations')
 
 				const conversationNames = wrapper.find('.scroller').findAllComponents({ name: 'ConversationItem' })
@@ -484,7 +484,7 @@ describe('LeftSidebar.vue', () => {
 				await wrapper.findComponent({ name: 'SearchBox' }).find('input[type="text"]').trigger('focus')
 
 				const captionsEls = wrapper.find('.scroller').findAll('.app-navigation-caption')
-				expect(captionsEls.map((caption) => caption.text())).toEqual(['Recently opened', 'Conversations'])
+				expect(captionsEls.map((caption) => caption.text())).toEqual(['Recent conversations', 'Conversations'])
 
 				const conversationNames = wrapper.find('.scroller').findAllComponents({ name: 'ConversationItem' })
 					.map((item) => item.props('item').token)
